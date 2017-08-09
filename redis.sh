@@ -20,7 +20,9 @@ cp redis.conf $CONF_DIR/6379.conf
 
 mkdir $LOCAL_FILE_DIR/6379
 
-sed -i '/daemonize no/c\daemonize yes.' $CONF_DIR/6379.conf
+cp utils/redis_init_script /etc/init.d/redis-server
+
+sed -i '/daemonize no/c\daemonize yes' $CONF_DIR/6379.conf
 sed -i 's:dir ./:\dir /var/redis/6379:' $CONF_DIR/6379.conf
 
 cd ..
