@@ -22,6 +22,8 @@ mkdir $LOCAL_FILE_DIR/6379
 
 cp utils/redis_init_script /etc/init.d/redis-server
 
+update-rc.d redis_6379 defaults
+
 sed -i '/daemonize no/c\daemonize yes' $CONF_DIR/6379.conf
 sed -i 's:dir ./:\dir /var/redis/6379:' $CONF_DIR/6379.conf
 
